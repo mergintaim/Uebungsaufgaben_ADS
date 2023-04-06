@@ -1,0 +1,17 @@
+
+Matrikelnummer = [6,6,8,1,7]
+kleinste_zahl = Matrikelnummer[0]
+
+for(i=1;i<length(Matrikelnummer),i++){
+    if Matrikelnummer[i] < kleinste_zahl
+        kleinste_zahl = Matrikelnummer[i]
+}
+return kleinste_zahl
+
+
+//index = 0
+//Matrikelnummer[1]<kleinste_zahl <-> 6 < 6 --> nein kleinste_zahl bleibt 6
+//Matrikelnummer[2]<kleinste_zahl <-> 8 < 6 --> nein kleinste_zahl bleibt 6
+//Matrikelnummer[3]<kleinste_zahl <-> 1 < 6 --> ja, kleinste_zahl wird 1
+//Matrikelnummer[4]<kleinste_zahl <-> 7 < 1 --> nein kleinste_zahl bleibt 1
+//Rückgabe kleinste_zahl = 1
