@@ -70,7 +70,7 @@ void CBTree::sweep_var(string &vn)
 		}
 	}
 }
-void CBTree::sweep_allvar(string &vn)
+void CBTree::sweep_allvar(string vn)
 {
 	string pat;
 	string sig;
@@ -149,7 +149,7 @@ void CBTree::ev_exchvar(CBNode *n, string &vtname, string &vfname)
 }
 
 //---------------------------------------------------------------
-void CBTree::bt_insert_node(CBNode * pdad,CBNode * &root, int depth, string &key, int val)
+void CBTree::bt_insert_node(CBNode * pdad,CBNode * &root, int depth, string key, int val)
 {
 	if(root==NULL){
 		root = new CBNode(pdad);
@@ -254,7 +254,7 @@ int CBTree::red_lr( CBNode *n,int depth,string &sig)
 }
 //---------------------------------------------------------------
 
-void main()
+int main()
 {
 	printf("Starting logic minimization...\n");
 	CBTree btree;
@@ -294,5 +294,7 @@ void main()
 	btree.tr_inorderpat(btree.minroot,pat);
     printf( "\n");
 	char c; cin>>c;
+
+	return 0;
 
 }

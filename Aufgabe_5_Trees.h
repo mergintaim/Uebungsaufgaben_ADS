@@ -52,25 +52,25 @@ public:
 		rel_tree(minroot);
 	};
 	//traversation
-	void CBTree::tr_inorderpat( CBNode *n, string &pat);
+	void  tr_inorderpat( CBNode *n, string &pat);
 
 	//tree construction
-	void CBTree::rel_tree( CBNode * &n);
-	CBNode * CBTree::bt_copy_t( CBNode * &n,CBNode * &nc);
-	void CBTree::bt_insert_node(CBNode * pdad,CBNode * &root,
-		int depth, string &key, int val);
-	void CBTree::bt_setvar(string vname);
-	void CBTree::bt_prvar(vector<string> pvars);
+	void  rel_tree( CBNode * &n);
+	CBNode *  bt_copy_t( CBNode * &n,CBNode * &nc);
+	void  bt_insert_node(CBNode * pdad,CBNode * &root,
+		int depth, string key, int val);
+	void  bt_setvar(string vname);
+	void  bt_prvar(vector<string> pvars);
 
 	//exchanging variables
-	void CBTree::ev_collectnode( CBNode *n, string &seaname,vector<CBNode *> &vnodes);
-	void CBTree::ev_exchvar(CBNode *n, string &vtname, string &vfname);
-	void CBTree::sweep_var(string &vn);
-	void CBTree::sweep_allvar(string &vn);
+	void  ev_collectnode( CBNode *n, string &seaname,vector<CBNode *> &vnodes);
+	void  ev_exchvar(CBNode *n, string &vtname, string &vfname);
+	void  sweep_var(string &vn);
+	void  sweep_allvar(string vn);
 
 	//reducing variables
-	void CBTree::reda_lr(CBNode *n);
-	int CBTree::red_lr( CBNode *n,int depth,string &sig);
-	bool CBTree::isleaf(CBNode *n);
+	void  reda_lr(CBNode *n);
+	int  red_lr( CBNode *n,int depth,string &sig);
+	bool  isleaf(CBNode *n);
 
 };
