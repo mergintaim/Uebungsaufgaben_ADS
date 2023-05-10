@@ -4,6 +4,7 @@
 
 #include "stdafx.h"
 #include "Aufgabe_5_Trees.h"
+#include <fstream>
 int CBNode::GLO_Node_count=0;
 
 /*
@@ -254,6 +255,22 @@ int CBTree::red_lr( CBNode *n,int depth,string &sig)
 }
 //---------------------------------------------------------------
 
+int readfromfile(CBTree& btree){
+	ifstream readfile("nodes.txt");
+	string line;
+	string path;
+	int value;
+	while(getline(readfile, line)){
+		cout << line << endl;
+		path = line.substr(0,4).append("\0");
+		value = (int) line[5]-48;//TODO: fix hacky conversion to int
+		cout << "path: "<< path <<" value: "<< value<<endl;
+		btree.bt_insert_node(NULL,btree.vroot,0,string(path),value);
+	}
+	cout << "Baum gefaellt, aah gefuellt..." << endl;
+	return 0;
+}
+
 int main()
 {
 	printf("Starting logic minimization...\n");
@@ -267,12 +284,14 @@ int main()
 	btree.bt_setvar(string("d"));
 
 	//define logical function
-	btree.bt_insert_node(NULL,btree.vroot,0,string("0101"),1);
-	btree.bt_insert_node(NULL,btree.vroot,0,string("0111"),1);
-	btree.bt_insert_node(NULL,btree.vroot,0,string("0110"),1);
-	btree.bt_insert_node(NULL,btree.vroot,0,string("0010"),1);
-	btree.bt_insert_node(NULL,btree.vroot,0,string("1101"),1);
-	btree.bt_insert_node(NULL,btree.vroot,0,string("1001"),1);
+	// btree.bt_insert_node(NULL,btree.vroot,0,string("0101"),1);
+	// btree.bt_insert_node(NULL,btree.vroot,0,string("0111"),1);
+	// btree.bt_insert_node(NULL,btree.vroot,0,string("0110"),1);
+	// btree.bt_insert_node(NULL,btree.vroot,0,string("0010"),1);
+	// btree.bt_insert_node(NULL,btree.vroot,0,string("1101"),1);
+	// btree.bt_insert_node(NULL,btree.vroot,0,string("1001"),1);
+	int success = readfromfile(btree);
+
 
 	//get the initial tree as first solution
 	btree.iroot = btree.bt_copy_t(btree.vroot,btree.iroot);
